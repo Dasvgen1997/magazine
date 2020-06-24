@@ -1,0 +1,31 @@
+
+
+.slider-section
+    .swiper-button-prev, .swiper-button-next   
+        color: #ffffff
+        font-size: 40px
+        cursor: pointer
+        font-size: 35px
+        transition: 300ms
+        &:hover
+            color: #f8014c
+            
+
+    .swiper-button-prev
+        &::after
+            font-family: "arrow"
+            speak: never
+            content: '\e802'
+        left: 20px
+        &:hover
+            transform: translateX(-5px)
+        
+
+    .swiper-button-next
+        &::after
+            font-family: "arrow"
+            speak: never
+            content: '\e800'
+        right: 20px
+        &:hover
+            transform: translateX(5px)

@@ -1,0 +1,78 @@
+@import './../../../styles/_breakpoints.sass'
+
+.search-window
+    max-width: 800px
+    display: flex
+    flex-direction: column
+    justify-content: center
+    height: 100%
+    margin: 0px auto
+
+    .search-window__line
+        border-bottom: 4px solid #f8014c
+        box-shadow: 0 0 10px 1px #f8014c
+        margin-top: 10px
+
+
+    .search-window__flex
+        display: flex
+        align-items: center
+
+    .search-window__input
+        font-size: 40px
+        color: #ffffff
+        flex-grow: 1
+        min-width: 200px
+        background-color: transparent
+        text-transform: uppercase
+        outline: none
+        border: none
+        text-align: center
+        font-weight: 800
+        caret-color: #f8014c
+        &::placeholder
+            color: #ffffff
+
+    .search-window__btn
+        font-size: 30px
+        background-color: transparent
+        border: none
+        color: #ffffff
+        outline: none
+        cursor: pointer
+        transition: 300ms
+        &:hover
+            color: #f8014c
+
+
+@include laptop()
+    .search-window
+        .search-window__input
+            font-size: 30px
+        .search-window__btn
+        font-size: 25px
+
+@include tablet()
+    .search-window
+        .search-window__input
+            font-size: 25px
+        .search-window__btn
+        font-size: 20px
+
+@include mobile()
+    .search-window
+        .search-window__input
+            font-size: 20px
+        .search-window__btn
+            font-size: 18px
+
+.node-enter
+    .search-window__line
+        width: 0%
+   
+.node-enter-active
+    .search-window__line
+        transition: width 500ms
+        width: 100%
+   
+    

@@ -1,0 +1,210 @@
+@import './_breakpoints.sass'
+@import './_variables.sass'
+
+$block-shadow: 0 9px 12px 0 rgba(0,0,0,.49)
+$red-shadow: 0 0 27px 3px #f8014c
+
+@mixin first-container()
+    max-width: 1150px
+    padding: 0px 15px
+    margin: 0px auto
+
+@mixin main-container()
+    max-width: 1100px
+    padding: 0px 15px
+    margin: 0px auto
+
+    @include desktop()
+        max-width: 950px
+
+    @include laptop()
+        max-width: 750px
+
+    @include tablet()
+        max-width: 600px
+
+@mixin main-text()
+    color: #b6b6b6
+    font-size: 16px
+    line-height: 22px
+    
+
+@mixin bold-title()
+    font-size: 45px
+    text-transform: uppercase
+    font-weight: 800
+
+    @include laptop()
+        font-size: 38px
+
+    @include tablet()
+        font-size: 24px
+
+        
+@mixin medium-title()
+    font-size: 28px
+    text-transform: uppercase
+    font-weight: 800
+
+    @include laptop()
+        font-size: 24px
+
+    @include tablet()
+        font-size: 20px
+
+@mixin second-medium-title()
+    font-size: 20px
+    text-transform: uppercase
+    font-weight: 800
+    @include tablet()
+        font-size: 18px
+
+@mixin small-title()
+    font-size: 15px
+    text-transform: uppercase
+    font-weight: 800
+
+@mixin underline-link($color)
+    font-size: 15px
+    @if $color == white
+        color: #ffffff
+    @else 
+        color: #b6b6b6
+    text-decoration: none
+    transition: 300ms
+    position: relative
+    &::before
+        position: absolute
+        content: ''
+        width: 0%
+        height: 1px
+        bottom: -2px
+        transition: 300ms
+        background-color: #b6b6b6
+    &:hover
+        color: #ffffff
+        &::before
+            width: 100%
+    
+
+@mixin border-block($type, $opacity, $gradient)
+    content: ''
+    position: absolute
+    @if $type == horizontal
+        width: 100%
+        height: 1px
+    @else if $type == vertical
+        width: 1px
+        height: 100%
+    opacity: $opacity
+    background-image: linear-gradient($gradient);
+
+
+@mixin block-padding()
+    padding: 20px
+    
+    @include tablet()
+        padding: 15px
+
+@mixin section-title()
+    display: flex
+    align-items: center
+    @include second-medium-title()
+    @include block-padding()
+
+    span:first-child
+        color: #f8014c
+        margin-right: 20px
+    
+    span:last-child
+        flex-grow: 1
+
+@mixin submit-btn()
+    cursor: pointer
+    font-size: 13px
+    color: #ffffff
+    text-transform: uppercase
+    font-weight: 600
+    background-color: #f8014c
+    @include block-padding()
+    border: none
+    position: relative
+    transition: 300ms
+    outline: none
+    &::before
+        @include border-block(horizontal, 0.6 ,(to right,#fd96b5 0,#fd96b5 46%,rgba(253,150,181,.2) 100%))
+        top: 0px
+        left: 0px
+
+    &::after
+        @include border-block(vertical, 0.6 ,(to bottom,#fd96b5 0,#fd96b5 46%,rgba(253,150,181,.2) 100%))
+        top: 0px
+        left: 0px
+    &:hover
+        box-shadow: $red-shadow
+    
+
+@mixin form-field()
+    box-sizing: border-box
+    position: relative
+    background-color: #000000
+    &::before
+        @include border-block(vertical, 0.6 ,(to top,#68597a 0,#68597a 46%,rgba(104,89,122,.2) 100%))
+        top: 0px
+        right: 0px
+
+    &::after
+        @include border-block(horizontal, 0.6 ,(to left,#68597a 0,#68597a 46%,rgba(104,89,122,0) 100%))
+        bottom: 0px
+        right: 0px
+
+    textarea, input
+        @include block-padding()
+        resize: vertical
+        box-sizing: border-box
+        outline: none
+        font-size: 14px
+        color: #ffffff
+        background-color: transparent
+        border: none
+        width: 100%
+        
+    
+@mixin card-filter($type)
+    @if $type == outer     
+        position: relative
+        width: 100%
+        height: 100%
+        z-index: 3
+        &::before
+            opacity: 0
+            transition: 400ms
+            background-color: #000
+            content: ''
+            z-index: 4
+            position: absolute
+            bottom: 0px
+            left: 0px
+            width: 100%
+            height: 100%
+            background: linear-gradient(to top,rgba(250,1,77,.6) 0,rgba(26,22,31,0) 100%)
+        
+
+        &::after
+            transition: 400ms
+            content: ''
+            position: absolute
+            height: 4px
+            width: 0%
+            bottom: 0px
+            left: 0px
+            background-color: #f8014c
+            box-shadow: $red-shadow
+
+
+    @else if $type == inner            
+        &::after
+            width: 100%
+        &::before        
+            opacity: 1
+    

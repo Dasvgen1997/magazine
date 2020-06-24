@@ -1,0 +1,68 @@
+@import './../../styles/_mixins.sass'
+
+
+.post-page
+    @include main-container()
+
+    .post-page__banner
+        position: relative
+        &::before
+            position: absolute
+            top: 0px
+            left: 0px
+            @include border-block($type: horizontal , $opacity: .7, $gradient: (to right,#68597a 0,#68597a 46%,rgba(104,89,122,0) 100%))
+
+        &::after
+            position: absolute
+            top: 0px
+            left: 0px
+            @include border-block($type: vertical , $opacity: .7, $gradient: (to bottom,#68597a 0,#68597a 46%,rgba(104,89,122,.2) 100%))
+        
+    .post-page__banner img
+        width: 100%
+
+    .post-page__info
+        margin-top: 20px
+        text-align: center
+
+    .post-page__flex
+        display: flex
+        align-items: center
+        justify-content: center
+        flex-wrap: wrap
+        margin: 20px 0px
+    
+    .post-page__flex > *
+        margin: 10px !important
+
+    
+    .post-page__created , .post-page__counter
+        margin: 20px 10px
+
+    .post-page__title
+        @include medium-title()
+        margin: 0px
+        text-align: center
+        
+
+    .post-page__content
+        text-align: center
+        padding: 20px 0px
+
+        h3
+            @include second-medium-title()
+            max-width: 750px
+            margin: 20px auto
+            
+        p
+            @include main-text()
+            
+
+        img
+            width: 100%
+            max-width: 750px
+            margin: 20px auto
+
+
+    .author-page__pagination, .author-page__author,  .author-page__add-comment
+        margin-bottom: 20px

@@ -1,0 +1,58 @@
+@import './../../../styles/_mixins.sass'
+@import './../../../styles/_breakpoints.sass'
+
+.add-comment
+    position: relative
+    background: linear-gradient(to bottom,#000 0,rgba(13,12,14,.70196) 100%)
+    &::before
+        top: 0
+        left: 0
+        @include border-block($type: horizontal, $opacity:.7 , $gradient:(to right,#68597a 0,#68597a 46%,rgba(104,89,122,0) 100%) )
+    &::after
+        top: 0
+        left: 0
+        @include border-block($type: vertical, $opacity:.4, $gradient:(to bottom,#68597a 0,#68597a 46%,rgba(104,89,122,.2) 100%) )
+        
+    .add-comment__section-title    
+        @include section-title()
+        position: relative
+        &::before
+            position: absolute
+            left: 0px
+            bottom: 0px
+            @include border-block($type: horizontal, $opacity:.7, $gradient:(to right,#68597a 0,#68597a 46%,rgba(104,89,122,0) 100%) )
+
+        
+    .add-comment__form
+        @include block-padding()
+    
+    .add-comment__form p
+        margin: 0px 0px 20px 0px
+        @include main-text()
+        
+    .add-comment__form-field-wrap
+        @include form-field()
+        
+    .add-comment__textarea
+        height: 150px
+
+    .add-comment__flex
+        display: flex
+        justify-content: space-between
+
+    .add-comment__flex > div
+        margin-top: 10px
+        width: 49.5%
+
+    @include mobile()
+        .add-comment__flex
+            display: block
+        .add-comment__flex > div
+            width: 100%
+        
+    .add-comment__submit
+        @include submit-btn()
+        width: 100%
+        margin-top: 10px
+
+        

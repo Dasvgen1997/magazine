@@ -1,0 +1,140 @@
+@import './../../styles/_mixins.sass'
+@import './../../styles/_breakpoints.sass'
+@import './../../styles/_variables.sass'
+
+.contacts-page
+    .contacts-page__title-layout
+        background-image: url('./../../files/img/road.jpg')
+        background-size: cover
+    
+    .contacts-page__title-filter
+        background-color: #00000074
+
+    .contacts-page__title-text
+        @include main-container()
+        @include bold-title()
+        text-align: center
+        padding: 120px 0px
+        
+    @include laptop()
+        .contacts-page__title-text
+            padding: 100px 0px
+        
+    @include tablet()
+        .contacts-page__title-text
+            padding: 80px 0px
+
+
+    .contacts-page__content-section
+        @include main-container()
+        padding-top: 120px
+        display: flex
+
+    .contacts-page__content-section > div
+        width: 50%
+
+    @include laptop()
+        .contacts-page__content-section
+            padding-top: 100px
+            display: block
+        .contacts-page__content-section > div
+            width: 100%
+
+    @include tablet()
+        .contacts-page__content-section
+            padding-top: 70px
+
+    
+        
+    .contacts-page__info-title
+        @include medium-title()
+        margin: 0px 0px 40px 0px
+
+    .contacts-page__info-flex
+        display: flex
+
+    .contacts-page__info-flex > div 
+        width: 50%  
+
+    @include mobile()
+        .contacts-page__info-flex
+            display: block
+
+        .contacts-page__info-flex > div 
+            width: 100% 
+
+        .contacts-page__info-email
+            margin-top: 40px
+
+    .contacts-page__info-subtitle
+        @include small-title()
+        
+    .contacts-page__info-list
+        list-style-type: none
+        padding: 0px
+        margin-top: 20px
+        font-family: Roboto
+
+    .contacts-page__info-list li
+        margin-top: 10px
+
+
+
+
+
+
+    .contacts-page__form-section
+        background: linear-gradient(to bottom,#000 0,rgba(13,12,14,.70196) 100%)
+        box-shadow: $block-shadow
+        position: relative
+        &::before
+            @include border-block($type: horizontal , $opacity: 0.3, $gradient: (to right,#68597a 0,#68597a 46%,rgba(104,89,122,0) 100%))
+            top: 0px
+            left: 0px
+        &::after
+            @include border-block($type: vertical , $opacity: 0.3, $gradient: (to bottom,#68597a 0,#68597a 46%,rgba(104,89,122,.2) 100%))
+            left: 0px
+            top: 0px
+
+    @include laptop()
+        .contacts-page__form-section
+            margin-top: 70px
+
+    .contacts-page__form-title
+        @include section-title()
+        position: relative
+        &::before
+            @include border-block($type: horizontal , $opacity: 0.3, $gradient: (to right,#68597a 0,#68597a 46%,rgba(104,89,122,0) 100%))
+            bottom: 0px
+            left: 0px
+        
+
+    .contacts-page__form
+        box-sizing: border-box
+        @include block-padding()
+
+    .contacts-page__form-field-wrap
+        @include form-field()
+        margin-top: 10px
+
+    .contacts-page__form-flex
+        display: flex
+        align-items: center
+        justify-content: space-between
+
+    .contacts-page__form-flex > div
+        width: 49%
+
+    @include mobile()
+        .contacts-page__form-flex
+            display: block
+
+        .contacts-page__form-flex > div
+            width: 100%
+
+    .contacts-page__form-submit
+        @include submit-btn()
+        width: 100%
+        margin-top: 10px
+
+        

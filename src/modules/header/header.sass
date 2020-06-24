@@ -1,0 +1,38 @@
+@import './../../styles/_breakpoints.sass'
+@import './../../styles/_mixins.sass'
+
+.main-header
+    @include first-container()
+    height: 120px
+    position: relative
+    display: flex
+    justify-content: space-between
+    align-items: center
+
+    .main-header__search-btn
+        outline: none
+        background-color: transparent
+        border: none
+        color: #ffffff
+        cursor: pointer
+        transition: 300ms
+        font-size: 20px
+        &:hover
+            color: #f8014c
+
+    .main-header__logo
+        position: absolute
+        left: calc( (100% -  120px)/2 )
+        width: 120px
+
+
+
+@include laptop()
+    .main-header
+        height: 90px
+        .main-header__logo
+            left: calc( (100% -  90px)/2 )
+            width: 90px
+
+
+
