@@ -1,5 +1,46 @@
-
+@import './../../styles/_mixins.sass'
 
 .page-wrap
+    
     .page-wrap__title
-        color: #ffffff
+        @include block-padding() 
+        @include bold-title()
+        margin: 0px
+        padding: 40px 0px
+        text-align: center
+        box-shadow: $block-shadow
+        background: linear-gradient(to bottom,#000 0,rgba(13,12,14,.70196) 100%)
+
+    .page-wrap__flex
+        @include main-container()
+        margin-top: 60px
+        display: flex
+        justify-content: space-between
+
+
+    .page-wrap__content
+        flex-grow: 1
+
+    .page-wrap__side-bar
+        max-width: 320px
+
+    .side-bar__subscribe-form
+        background: linear-gradient(to bottom,#000 0,rgba(13,12,14,.70196) 100%)
+        box-shadow: $block-shadow
+        @include block-padding()
+        position: relative
+        &::before
+            position: absolute
+            top: 0px
+            left: 0px
+            @include border-block($type: horizontal , $opacity: .3, $gradient: (to right,#68597a 0,#68597a 46%,rgba(104,89,122,0) 100%))
+
+        &::after 
+            position: absolute
+            top: 0px
+            left: 0px
+            @include border-block($type: vertical , $opacity: .3, $gradient: (to bottom,#68597a 0,#68597a 46%,rgba(104,89,122,.2) 100%)) 
+        
+    .side-bar__subscribe-form img
+        max-width: 200px
+        width: 100%

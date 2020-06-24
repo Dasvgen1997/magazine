@@ -11,10 +11,11 @@ import Author from './pages/author/author.jsx';
 export default function Router(){
     return(
         <Switch>
+            <Route path='/author/:id' component={Author} />
             <Route path='/contacts' component={Contacts} />
             <Route path='/' exact component={Home} />
             <Route path='/post/:id' component={Post} />
-            <Route path='/auhtor/:id' component={Author} />
+           
         </Switch>
     )
 }
