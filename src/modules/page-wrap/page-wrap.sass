@@ -1,7 +1,7 @@
 @import './../../styles/_mixins.sass'
+@import './../../styles/_breakpoints.sass'
 
 .page-wrap
-    
     .page-wrap__title
         @include block-padding() 
         @include bold-title()
@@ -20,9 +20,24 @@
 
     .page-wrap__content
         flex-grow: 1
+        margin-right: 30px
 
     .page-wrap__side-bar
         max-width: 320px
+        width: 100%
+
+    @include laptop()
+        .page-wrap__flex
+            display: block
+            margin-top: 40px
+        .page-wrap__content
+            margin-right: 0px
+            width: 100%
+        .page-wrap__side-bar
+            margin-top: 20px
+            max-width: 100%
+            width: 100%
+
 
     .side-bar__subscribe-form
         background: linear-gradient(to bottom,#000 0,rgba(13,12,14,.70196) 100%)
@@ -42,5 +57,48 @@
             @include border-block($type: vertical , $opacity: .3, $gradient: (to bottom,#68597a 0,#68597a 46%,rgba(104,89,122,.2) 100%)) 
         
     .side-bar__subscribe-form img
+        display: block
         max-width: 200px
         width: 100%
+        margin: 10px auto
+
+
+    .side-bar__field-wrap
+        @include form-field()
+
+    .side-bar__subscribe-submit
+        @include submit-btn()
+        width: 100%
+        margin-top: 10px
+
+
+
+    .side-bar__block-wrap
+        background: linear-gradient(to bottom,#000 0,rgba(13,12,14,.70196) 100%)
+        position: relative
+        &::before
+            position: absolute
+            top: 0px
+            left: 0px
+            @include border-block($type: horizontal , $opacity: .3, $gradient: (to right,#68597a 0,#68597a 46%,rgba(104,89,122,0) 100%))
+        &::after
+            position: absolute
+            top: 0px
+            left: 0px
+            @include border-block($type: vertical , $opacity: .3, $gradient: (to bottom,#68597a 0,#68597a 46%,rgba(104,89,122,.2) 100%))
+            
+
+
+    .side-bar__block-wrap-title
+        @include section-title()
+        position: relative
+        &::before
+            @include border-block($type: horizontal , $opacity: .3, $gradient: (to top,#68597a 0,#68597a 46%,rgba(104,89,122,.2) 100%))
+            left: 0px
+            bottom: 0px
+
+    
+    .side-bar__tag-cloud, .side-bar__latest
+        margin-top: 20px
+        
+
